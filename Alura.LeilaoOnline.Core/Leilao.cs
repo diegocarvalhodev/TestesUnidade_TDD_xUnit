@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Alura.LeilaoOnline.Core
@@ -42,6 +43,12 @@ namespace Alura.LeilaoOnline.Core
 
         public void TerminaPregao()
         {
+            if (Estado != EstadoLeilao.LeilaoEmAndamento)
+            {
+                var msg = "Não é possível terminar o pregão sem que ele tenha começado. Para isso, utiliza o método IniciaPregao().";
+                throw new InvalidOperationException(msg);
+            }   
+
             this.Ganhador = this.Lances
                                     .DefaultIfEmpty(new Lance(null, 0))
                                     .OrderBy(l => l.Valor)
