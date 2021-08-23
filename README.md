@@ -60,3 +60,6 @@ Leilão tem nova modalidade de avaliação: por valor superior mais próximo. Ne
 - **Dado** leilão iniciado com a modalidade de avaliação "valor superior mais próximo", valor de destino 1200 e lances de 800, 1150, 1400 e 1250.<br>
 - **Quando** o leilão terminar<br>
 - **Então** o ganhador será quem fez a oferta de 1250
+
+#### Cenário 2
+Implementado a interface IModalidadeAvaliacao para separar a responsabilidade de avaliar o ganhador do leilão para outra classe. Tirar a responsabilidade da classe Leilão (SOLID).
